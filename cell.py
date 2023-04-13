@@ -1,9 +1,9 @@
 from turtle import Turtle
 
 class Cell:
-    def __init__(self, height, width, color, x, y):
-        self.height=height
-        self.width=width
+    def __init__(self, x, y, color):
+        self.height = 20
+        self.width = 20
         self.color=color
         self.x=x
         self.y=y
