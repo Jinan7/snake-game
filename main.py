@@ -12,7 +12,7 @@ screen.title(TITLE)
 screen.tracer(0)
 
 
-snake = Cell(0,0,0,0,0)
+snake = Cell(0,0,0)
 
 screen.update()
 screen.exitonclick()
