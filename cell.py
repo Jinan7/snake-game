@@ -8,6 +8,7 @@ class Cell:
         self.x=x
         self.y=y
         self.cell = Turtle("square")
+        self.cell.penup()
         self.set_position(self.x,self.y)
 
     def set_position(self, x,y):
