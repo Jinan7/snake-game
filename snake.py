@@ -14,4 +14,7 @@ class Snake:
         for pos in range(self.no_of_cells-1, 0, -1):
             self.snake[pos].x = self.snake[pos - 1].x
             self.snake[pos].y = self.snake[pos - 1].y
-        self.snake[0].set_position(x, y)
+            self.snake[pos].set_position(self.snake[pos].x, self.snake[pos].y)
+        self.snake[0].x += x
+        self.snake[0].y += y
+        self.snake[0].set_position(self.snake[0].x, self.snake[0].y)
