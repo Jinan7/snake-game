@@ -1,6 +1,8 @@
 from turtle import Turtle, Screen
 from cell import Cell
 from snake import Snake
+from food import Food
+from random import Random
 import time
 #window dimensions and title
 WINDOWWIDTH = 600
@@ -15,6 +17,7 @@ screen.setup(WINDOWWIDTH, WINDOWHEIGHT)
 screen.title(TITLE)
 screen.tracer(0)
 snake = Snake(5)
+food = Food(100, 100)
 
 #movement variables
 global x_velocity, y_velocity
