@@ -1,9 +1,11 @@
-from turtle import Turtle, Screen
-from cell import Cell
+from turtle import Screen
 from snake import Snake
 from food import Food
-from random import Random
+from text import TextBox
 import time
+
+
+
 #window dimensions and title
 WINDOWWIDTH = 600
 WINDOWHEIGHT = 600
@@ -16,8 +18,15 @@ screen = Screen()
 screen.setup(WINDOWWIDTH, WINDOWHEIGHT)
 screen.title(TITLE)
 screen.tracer(0)
+
 snake = Snake(5)
 food = Food()
+
+#text box data
+score = 0
+score_text = f'score: {score}'
+text_box = TextBox(0, WINDOWHEIGHT/2 - 20,score_text)
+
 
 #movement variables
 global x_velocity, y_velocity
@@ -59,10 +68,13 @@ while not game_over:
 
     #check if snake has eaten
     if snake.has_eaten(food):
+        score += 10
+        score_text = f'score: {score}'
+        text_box.update(score_text)
         food.set_position()
         snake.grow()
 
-    #check if snake has hit wall
+    #check if snake has hit wall or self
     if snake.has_hit_wall() or snake.has_hit_self():
         game_over = True
 
