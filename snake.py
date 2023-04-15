@@ -20,5 +20,11 @@ class Snake:
         self.snake[0].y += y
         self.snake[0].set_position(self.snake[0].x, self.snake[0].y)
 
-    def hasEaten(self, food):
+    def has_eaten(self, food):
         return self.snake[0].cell.distance(food.xcor(), food.ycor()) < food.get_size()
+
+    def has_hit_wall(self):
+        return (self.snake[0].x >270 or
+                self.snake[0].y > 270 or
+                self.snake[0].x < -270 or
+                self.snake[0].y < -270)
