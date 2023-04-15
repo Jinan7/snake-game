@@ -23,6 +23,11 @@ class Snake:
     def has_eaten(self, food):
         return self.snake[0].cell.distance(food.xcor(), food.ycor()) < food.get_size()
 
+    def grow(self):
+        self.no_of_cells += 1git
+        cell = Cell(self.snake[len(self.snake)-1].x, self.snake[len(self.snake)-1].y, 0)
+        self.snake.append(cell)
+
     def has_hit_wall(self):
         return (self.snake[0].x >270 or
                 self.snake[0].y > 270 or

@@ -13,3 +13,9 @@ class Cell:
 
     def set_position(self, x,y):
         self.cell.goto(self.x, self.y)
+
+    def get_position(self):
+        pass
+
+    def move(self):
+        self.cell.goto(self.x, self.y)
