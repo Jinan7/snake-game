@@ -8,7 +8,7 @@ import time
 WINDOWWIDTH = 600
 WINDOWHEIGHT = 600
 TITLE = "Snake"
-
+game_over = False
 
 
 #create and initialize window
@@ -53,10 +53,17 @@ screen.onkey(left, "a")
 
 
 #game lopp
-while True:
+while not game_over:
+    #move snake
     snake.move(x_velocity, y_velocity)
-    if snake.hasEaten(food):
+
+    #check if snake has eaten
+    if snake.has_eaten(food):
         food.set_position()
+
+    #check if snake has hit wall
+    if snake.has_hit_wall():
+        game_over = True
     screen.update()
     time.sleep(0.2)
 
