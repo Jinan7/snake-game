@@ -60,6 +60,7 @@ while not game_over:
     #check if snake has eaten
     if snake.has_eaten(food):
         food.set_position()
+        snake.grow()
 
     #check if snake has hit wall
     if snake.has_hit_wall():
