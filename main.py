@@ -25,6 +25,7 @@ food = Food()
 #text box data
 score = 0
 score_text = f'score: {score}'
+game_over_text = 'Game Over!'
 text_box = TextBox(0, WINDOWHEIGHT/2 - 20,score_text)
 
 
@@ -76,6 +77,7 @@ while not game_over:
 
     #check if snake has hit wall or self
     if snake.has_hit_wall() or snake.has_hit_self():
+        text_box.update(game_over_text)
         game_over = True
 
     screen.update()
