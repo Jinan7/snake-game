@@ -1,16 +1,21 @@
 from turtle import Turtle, color
-from random import Random
+import random
 
 class Food(Turtle):
-    def __init__(self, x, y):
+    def __init__(self):
         super().__init__()
+        self.y = None
+        self.x = None
         self.penup()
         self.shape("square")
         self.shapesize(stretch_wid=0.5, stretch_len=0.5, outline=1)
-        self.set_position(x,y)
+        self.set_position()
 
 
-    def set_position(self,x,y):
-        self.x = x
-        self.y = y
-        self.goto(x, y)
+    def set_position(self):
+        self.x = random.randint(-200, 200)
+        self.y = random.randint(-200, 200)
+        self.goto(self.x, self.y)
+
+    def get_size(self):
+        return 20*0.5 
