@@ -17,7 +17,7 @@ screen.setup(WINDOWWIDTH, WINDOWHEIGHT)
 screen.title(TITLE)
 screen.tracer(0)
 snake = Snake(5)
-food = Food(100, 100)
+food = Food()
 
 #movement variables
 global x_velocity, y_velocity
@@ -55,6 +55,8 @@ screen.onkey(left, "a")
 #game lopp
 while True:
     snake.move(x_velocity, y_velocity)
+    if snake.hasEaten(food):
+        food.set_position()
     screen.update()
     time.sleep(0.2)
 
