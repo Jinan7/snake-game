@@ -1,5 +1,6 @@
 from turtle import Turtle
 from cell import *
+from food import *
 class Snake:
     def __init__(self, no_of_cells):
         self.no_of_cells = no_of_cells
@@ -18,3 +19,6 @@ class Snake:
         self.snake[0].x += x
         self.snake[0].y += y
         self.snake[0].set_position(self.snake[0].x, self.snake[0].y)
+
+    def hasEaten(self, food):
+        return self.snake[0].cell.distance(food.xcor(), food.ycor()) < food.get_size()
