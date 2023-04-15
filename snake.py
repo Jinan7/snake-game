@@ -24,7 +24,7 @@ class Snake:
         return self.snake[0].cell.distance(food.xcor(), food.ycor()) < food.get_size()
 
     def grow(self):
-        self.no_of_cells += 1git
+        self.no_of_cells += 1
         cell = Cell(self.snake[len(self.snake)-1].x, self.snake[len(self.snake)-1].y, 0)
         self.snake.append(cell)
 
