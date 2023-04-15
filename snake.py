@@ -23,6 +23,12 @@ class Snake:
     def has_eaten(self, food):
         return self.snake[0].cell.distance(food.xcor(), food.ycor()) < food.get_size()
 
+    def has_hit_self(self):
+        for cell in self.snake[1:]:
+            if self.snake[0].cell.distance(cell.cell.xcor(), cell.cell.ycor()) < 10:
+                return True
+        return False
+
     def grow(self):
         self.no_of_cells += 1
         cell = Cell(self.snake[len(self.snake)-1].x, self.snake[len(self.snake)-1].y, 0)

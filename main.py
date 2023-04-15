@@ -63,8 +63,9 @@ while not game_over:
         snake.grow()
 
     #check if snake has hit wall
-    if snake.has_hit_wall():
+    if snake.has_hit_wall() or snake.has_hit_self():
         game_over = True
+
     screen.update()
     time.sleep(0.2)
 
