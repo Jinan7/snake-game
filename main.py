@@ -23,8 +23,10 @@ snake = Snake(5)
 food = Food()
 
 #text box data
+with open('high_score.txt') as file:
+    highscore = file.read()
 score = 0
-score_text = f'score: {score}'
+score_text = f'score: {score} Highscore: {highscore}'
 game_over_text = 'Game Over!'
 text_box = TextBox(0, WINDOWHEIGHT/2 - 20,score_text)
 
@@ -70,10 +72,17 @@ while not game_over:
     #check if snake has eaten
     if snake.has_eaten(food):
         score += 10
-        score_text = f'score: {score}'
+        if score > int(highscore):
+            highscore = str(score)
+            with open('high_score.txt', 'w') as file:
+                file.write(highscore)
+        score_text = f'score: {score} Highscore: {highscore}'
         text_box.update(score_text)
         food.set_position()
         snake.grow()
+
+    #update highscore
+
 
     #check if snake has hit wall or self
     if snake.has_hit_wall() or snake.has_hit_self():
